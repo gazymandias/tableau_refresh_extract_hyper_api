@@ -9,6 +9,7 @@ col_names = df.columns
 # create a list of column types
 col_types = df.dtypes
 
+
 # dispatch table to work out what SQLType to assign the column
 def get_type(column_type):
     dispatch = {
@@ -27,7 +28,6 @@ for i in range(0, len(col_names)):
     # print(col_name)
     # print(col_type)
     columns.append(TableDefinition.Column(col_name, get_type(str(col_type)), NULLABLE))
-
 
 with HyperProcess(telemetry=Telemetry.DO_NOT_SEND_USAGE_DATA_TO_TABLEAU) as hyper:
     print("The HyperProcess has started.")
